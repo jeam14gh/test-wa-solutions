@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { memo, useCallback } from 'react'
 import { FixedSizeGrid as Grid, GridOnScrollProps } from 'react-window'
 import {
@@ -46,8 +45,9 @@ const ProductGrid: React.FC<ProductGridProps> = ({
       width={TABLE_WIDTH}
       style={{ overflow: 'auto overlay' }}
       onScroll={onScroll}
+      useIsScrolling
     >
-      {({ rowIndex, columnIndex, style }) => {
+      {({ rowIndex, columnIndex, style, isScrolling }) => {
         const [_, items] = products[rowIndex]
         const item = items[columnIndex]
 
@@ -59,6 +59,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({
             item={item}
             onUpdateProduct={onUpdateProduct}
             style={style}
+            isScrolling={isScrolling}
           />
         )
       }}

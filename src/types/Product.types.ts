@@ -40,6 +40,7 @@ export interface CellProps {
     columnIndex: number,
     value: number
   ) => void
+  isScrolling?: boolean
 }
 
 export type GroupedProduct = [string, Product[]]

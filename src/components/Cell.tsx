@@ -8,7 +8,8 @@ const Cell: FC<CellProps> = ({
   style,
   rowIndex,
   columnIndex,
-  onUpdateProduct
+  onUpdateProduct,
+  isScrolling
 }) => {
   const [inputValue, setInputValue] = useState(item.makeToOrder)
   const [bgColor, setBgColor] = useState(getColor(item))
@@ -24,6 +25,14 @@ const Cell: FC<CellProps> = ({
     setBgColor(getColor({ ...item, makeToOrder: inputValue }))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inputValue])
+
+  if (isScrolling) {
+    return (
+      <Box style={style} className='center'>
+        <div className='spinner' />
+      </Box>
+    )
+  }
 
   return columnIndex <= 1 ? (
     <Box key={columnIndex} style={style}>

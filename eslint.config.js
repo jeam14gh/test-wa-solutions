@@ -37,8 +37,15 @@ export default [
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/no-duplicate-enum-values': 'warn',
       'no-unused-vars': [
-        'warn',
-        { vars: 'all', args: 'none', ignoreRestSiblings: false }
+        'error',
+        {
+          vars: 'all',
+          args: 'none',
+          varsIgnorePattern: '^_',
+          argsIgnorePattern: '^_',
+          destructuredArrayIgnorePattern: '^_',
+          ignoreRestSiblings: false
+        }
       ],
 
       '@typescript-eslint/explicit-function-return-type': 'off',
